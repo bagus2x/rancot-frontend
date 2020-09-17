@@ -83,7 +83,7 @@ function ChatBox() {
 	return (
 		<div className={classes.root} style={{ height: height }}>
 			<Helmet>
-				<title>{room.replace(/-/g, ' ')} | Random Cot</title>
+				<title>{room.replace(/-/g, ' ')} | RanCot</title>
 			</Helmet>
 			<div className={classes.chatBox}>
 				<div className={classes.chatHeader}>
