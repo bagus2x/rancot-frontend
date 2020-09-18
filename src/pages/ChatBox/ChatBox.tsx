@@ -32,7 +32,7 @@ function ChatBox() {
 
 	useEffect(() => {
 		if (!window.WebSocket) {
-			alert('Upss, your browser doesn\'t support WebSocket');
+			alert("Upss, your browser doesn't support WebSocket");
 			return;
 		}
 		connect();
@@ -64,6 +64,7 @@ function ChatBox() {
 		};
 		ws.onmessage = (event: MessageEvent) => {
 			let res: MessagePayload = JSON.parse(event.data);
+			res.time = Math.round(Date.now() / 1000);
 			setMessages((prevMsgs) => [...prevMsgs, res]);
 		};
 	};
