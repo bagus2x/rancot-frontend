@@ -33,7 +33,6 @@ function Login() {
 			if (prev[e.target.name][prev[e.target.name].length - 1] === '-' && e.target.value[e.target.value.length - 1] === ' ') {
 				return prev;
 			} else {
-				console.log('salah');
 				return { ...prev, [e.target.name]: e.target.value.replace(/ +/g, '-') };
 			}
 		});

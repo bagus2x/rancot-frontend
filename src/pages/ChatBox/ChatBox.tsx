@@ -32,7 +32,7 @@ function ChatBox() {
 
 	useEffect(() => {
 		if (!window.WebSocket) {
-			alert('Your browser does not support WebSocket');
+			alert('Upss, your browser doesn\'t support WebSocket');
 			return;
 		}
 		connect();
@@ -54,7 +54,7 @@ function ChatBox() {
 	};
 
 	const connect = () => {
-		let ws = new WebSocket(`ws://192.168.1.6:8080/api/ws?room=${room}&username=${username}`);
+		let ws = new WebSocket(`wss://rancot.herokuapp.com/api/ws?room=${room}&username=${username}`);
 		ws.onopen = () => {
 			wsconn.current = ws;
 			setConnection(true);
