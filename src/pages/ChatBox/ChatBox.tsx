@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import Message, { MessageType } from '../../components/Message';
 import useSeratusVeha from '../../helper/useSeratusVeha';
+import Tooltip from '@material-ui/core/Tooltip';
 
 interface ParamsType {
 	room: string;
@@ -61,6 +62,7 @@ function ChatBox() {
 		};
 		ws.onclose = () => {
 			setConnection(false);
+			setTimeout(connect, 5000);
 		};
 		ws.onmessage = (event: MessageEvent) => {
 			let res: MessagePayload = JSON.parse(event.data);
@@ -91,7 +93,9 @@ function ChatBox() {
 					<Typography variant="h6">{room.replace(/-/g, ' ')}</Typography>
 					<div className={classes.userInfo}>
 						<Typography variant="body1">{username.replace(/-/g, ' ')}</Typography>
-						<span className={`${classes.connection} ${connection && classes.on}`}></span>
+						<Tooltip title="Failed to connect" open={!connection} arrow>
+							<span className={`${classes.connection} ${connection && classes.on}`} />
+						</Tooltip>
 					</div>
 				</div>
 				<div ref={chatWrapperRef} className={classes.chatWrapper}>
@@ -104,13 +108,12 @@ function ChatBox() {
 				<form onSubmit={handleSendMessage} className={classes.chatInput}>
 					<input
 						autoComplete="off"
-						placeholder="Message..."
+						placeholder={connection ? 'Message...' : "Can't connect to server"}
 						value={message}
 						onChange={handleInputMessageChange}
 						name="message"
 						type="text"
 					/>
-					{/* Kenapa di form submit di mobile gak jalan ya? */}
 					<IconButton onClick={handleSendMessage} type="submit">
 						<SendIcon />
 					</IconButton>
