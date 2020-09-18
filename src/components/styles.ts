@@ -3,9 +3,9 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles((theme: Theme) =>
 	createStyles({
 		message: {
-			display: 'inline-flex',
-			flexDirection: 'column',
-			minWidth: 'fit-content',
+			width: 'auto',
+			maxWidth:'100%',
+			minWidth: 'auto',
 			marginBottom: theme.spacing(2),
 			padding: theme.spacing(1),
 			borderRadius: theme.spacing(1),
@@ -13,6 +13,9 @@ export default makeStyles((theme: Theme) =>
 			'& > *:nth-child(2)': {
 				marginTop: theme.spacing(1),
 			},
+			'& *':{
+				wordWrap: 'break-word',
+			}
 		},
 		sender: {
 			background: theme.palette.primary.dark,
