@@ -1,6 +1,9 @@
 ## Demo
 - [https://rancot.netlify.app](https://rancot.netlify.app)
 
+## Backend Repo
+- [https://github.com/bagus2x/rancot-backend](https://github.com/bagus2x/rancot-backend)
+
 ## Available Scripts
 
 In the project directory, you can run:
