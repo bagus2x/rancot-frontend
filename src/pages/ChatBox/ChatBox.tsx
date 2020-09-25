@@ -93,7 +93,7 @@ function ChatBox() {
 					<Typography variant="h6">{room.replace(/-/g, ' ')}</Typography>
 					<div className={classes.userInfo}>
 						<Typography variant="body1">{username.replace(/-/g, ' ')}</Typography>
-						<Tooltip title="Failed to connect" open={!connection} arrow>
+						<Tooltip title="Connecting..." open={!connection} arrow>
 							<span className={`${classes.connection} ${connection && classes.on}`} />
 						</Tooltip>
 					</div>
