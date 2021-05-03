@@ -108,7 +108,7 @@ function ChatBox() {
 				<form onSubmit={handleSendMessage} className={classes.chatInput}>
 					<input
 						autoComplete="off"
-						placeholder={connection ? 'Message...' : "Can't connect to server"}
+						placeholder={connection ? 'Message...' : "Connecting to the server"}
 						value={message}
 						onChange={handleInputMessageChange}
 						name="message"
